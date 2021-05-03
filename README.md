@@ -1,7 +1,7 @@
 # LibreOffice Convertor (loconvertor)
 
-This is a simple application that converts ODT file or other documents using
-LibreOffice SDK into PDF or other LibreOffice supported file types. This
+This is a simple C++ application that can convert ODT or other document files
+using LibreOffice SDK into PDF or other LibreOffice supported file types. This
 application is derived from `DocumentLoader` example, and is using `qmake`, in
 order to compile, execute and debug easier using Qt Creator. To keep it simple,
 the arguments are not processed, and the input file is the `test.odt` in the
