@@ -9,6 +9,8 @@ source folder, and the output will be `~/test.pdf`.
 
 ## Compiling and Running
 
+### Using Official SDK
+
 To be able to compile and run this example, you should have installed
 LibreOffice and LibreOffice SDK, then you should set `LOROOT` in
 `loconvertor.pro` to appropriate folder. For LibreOffice 7.1 SDK, you should
@@ -23,14 +25,6 @@ symbolic link `/libmergedlo.so` using this command:
 
     $ sudo ln -s /opt/libreoffice7.1/program/libmergedlo.so /libmergedlo.so
 
-If you have [built LibreOffice](
-https://wiki.documentfoundation.org/Development/BuildingOnLinux) yourself, use
-the `instdir` path for `LOROOT`:
-
-    LOROOT = /home/hossein/Projects/libreoffice/core/instdir
-
-In such case, the above symbolic link is not needed, and should not be created.
-
 Compiling and running the `loconvertor` is easy. First, run an instance of
 LibreOffice to listen for the incoming connections:
 
@@ -38,6 +32,16 @@ LibreOffice to listen for the incoming connections:
     
 and then just open the project file in Qt Creator, and click `Run` or press
 `Ctrl+R`.
+
+### Local Build
+
+If you have [built LibreOffice](
+https://wiki.documentfoundation.org/Development/BuildingOnLinux) yourself, use
+the `instdir` path for `LOROOT`:
+
+    LOROOT = /home/hossein/Projects/libreoffice/core/instdir
+
+In such case, the above symbolic link is not needed, and should not be created.
 
 If you use a local build, run:
 
