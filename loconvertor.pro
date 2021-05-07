@@ -19,8 +19,7 @@ LOROOT = /opt/libreoffice7.1
 
 DEFINES += LO_ROOT='\\"$${LOROOT}\\"'
 
-INCLUDEPATH += $${LOROOT}/sdk/include \
-    ../UnoApiHeaders7.1
+INCLUDEPATH += $${LOROOT}/sdk/include
 
 SOURCES += \
     main.cpp \
