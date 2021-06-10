@@ -54,9 +54,9 @@ int main()
     {
         auto xComponent = xComponentLoader->loadComponentFromURL(sDocUrl, "_blank"
                                    , 0, loadProperties);
-        Reference<XTextDocument> xDocument(xComponent, UNO_QUERY_THROW);
-        Reference<XStorable> xStorable(xDocument, UNO_QUERY_THROW);
-        Sequence<PropertyValue> storeProps(3);
+        auto xDocument = Reference<XTextDocument>(xComponent, UNO_QUERY_THROW);
+        auto xStorable = Reference<XStorable>(xDocument, UNO_QUERY_THROW);
+        auto storeProps = Sequence<PropertyValue>(3);
         storeProps[0].Name = "FilterName";
         storeProps[0].Value <<= OUString("writer_pdf_Export");
         storeProps[1].Name = "Overwrite";
