@@ -5,7 +5,7 @@ project(loconvertor LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(LOROOT /opt/libreoffice7.1)
+set(LOROOT /opt/libreoffice7.6)
 
 add_executable(loconvertor main.cpp)
 
@@ -21,14 +21,14 @@ target_link_directories(loconvertor PRIVATE
     ${LOROOT}/sdk/lib
     )
 target_link_libraries(loconvertor
-    -luno_sal
-    -luno_cppu
-    -luno_cppuhelpergcc3
-    -luno_salhelpergcc3
-    -lunoidllo
-    -lxmlreaderlo
-    -lreglo
-    -lmergedlo
+    uno_sal
+    uno_cppu
+    uno_cppuhelpergcc3
+    uno_salhelpergcc3
+    unoidllo
+    xmlreaderlo
+    reglo
+    mergedlo
     )
 
 add_definitions(-DLINUX)

@@ -4,7 +4,7 @@ CONFIG += console
 
 QMAKE_CXXFLAGS += -std=c++17
 
-LOROOT = /opt/libreoffice7.1
+LOROOT = /opt/libreoffice7.6
 
 DEFINES += LO_ROOT='\\"$${LOROOT}\\"'
 

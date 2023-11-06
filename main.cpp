@@ -1,13 +1,13 @@
 #include <iostream>
 #include <cppuhelper/bootstrap.hxx>
 #include <rtl/bootstrap.hxx>
-#include <beans/XPropertySet.hpp>
-#include <bridge/XUnoUrlResolver.hpp>
-#include <frame/Desktop.hpp>
-#include <frame/XComponentLoader.hpp>
-#include <frame/XStorable.hpp>
-#include <lang/XMultiComponentFactory.hpp>
-#include <text/XTextDocument.hpp>
+#include <com/sun/star/beans/XPropertySet.hpp>
+#include <com/sun/star/bridge/XUnoUrlResolver.hpp>
+#include <com/sun/star/frame/Desktop.hpp>
+#include <com/sun/star/frame/XComponentLoader.hpp>
+#include <com/sun/star/frame/XStorable.hpp>
+#include <com/sun/star/lang/XMultiComponentFactory.hpp>
+#include <com/sun/star/text/XTextDocument.hpp>
 
 using namespace std;
 using namespace cppu;
@@ -23,14 +23,15 @@ int main()
 {
     OUString sDocUrl("file:///~/test.odt"), sPDFUrl("file:///~/test.pdf");
     OUString sConnectionString("uno:socket,host=localhost,port=2083;urp;StarOffice.ServiceManager");
-    Bootstrap::set("URE_MORE_TYPES", "file:///opt/libreoffice7.1/program/types/offapi.rdb");
-    Bootstrap::set("URE_BOOTSTRAP", "vnd.sun.star.pathname:/opt/libreoffice7.1/program/fundamentalrc");
+    Bootstrap::set("URE_MORE_TYPES", "file:///opt/libreoffice7.6/program/types/offapi.rdb");
+    Bootstrap::set("URE_BOOTSTRAP", "vnd.sun.star.pathname:/opt/libreoffice7.6/program/fundamentalrc");
 
     auto xComponentContext(defaultBootstrap_InitialComponentContext());
     auto xMultiComponentFactoryClient(xComponentContext->getServiceManager());
     auto xInterface = xMultiComponentFactoryClient->createInstanceWithContext(
             "com.sun.star.bridge.UnoUrlResolver", xComponentContext);
     auto resolver = Reference<XUnoUrlResolver>(xInterface, UNO_QUERY);
+
     try
     {
         xInterface = Reference<XInterface>(resolver->resolve(sConnectionString)
@@ -50,6 +51,7 @@ int main()
     Sequence<PropertyValue> loadProperties(1);
     loadProperties[0].Name = "Hidden";
     loadProperties[0].Value <<= true;
+
     try
     {
         auto xComponent = xComponentLoader->loadComponentFromURL(sDocUrl, "_blank"
