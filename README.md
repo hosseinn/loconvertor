@@ -12,15 +12,15 @@ and the input file is the `~/test.odt`, and the output will be `~/test.pdf`.
 
 To be able to compile and run this example, you should have installed
 LibreOffice and LibreOffice SDK, then you should set `LOROOT` in
-`loconvertor.pro` to appropriate folder. For LibreOffice 7.1 SDK, you should
+`loconvertor.pro` to appropriate folder. For LibreOffice 7.6 SDK, you should
 use this line:
 
-    LOROOT = /opt/libreoffice7.1
+    LOROOT = /opt/libreoffice7.6
 
 Compiling and running the `loconvertor` is easy. First, run an instance of
 LibreOffice to listen for the incoming connections:
 
-    $ libreoffice7.1 "--accept=socket,port=2083;urp;"
+    $ libreoffice7.6 "--accept=socket,port=2083;urp;"
     
 and then just open the project file in Qt Creator, and click `Run` or press
 `Ctrl+R`. Both `cmake` and `qmake` should can be used.
